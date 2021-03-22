@@ -36,4 +36,11 @@ class calculaterTest {
         int numString = calc.add("5 , ");
         assertEquals(numString,5);
     }
+    @Test
+    @DisplayName("test add  method with Unkown Number  ")
+    void testAddMethodWithUnkownNumbers () {
+        int numString = calc.add("5,6,7");
+        assertEquals(numString,18);
+    }
+
 }
