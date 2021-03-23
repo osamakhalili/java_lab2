@@ -88,7 +88,13 @@ class calculaterTest {
     @Test
     @DisplayName("Delimiters can be of any length ")
     void testAddMethodWithDelimitersCanBeOfAnylength () {
-        int numString = calc.add(": //[***]\n1***2***3");
+        int numString = calc.add("//[***]\n1***2***3");
+        assertEquals(numString,6);
+    }
+    @Test
+    @DisplayName("Allow multiple delimiters l ")
+    void testAddMethodWithAllowMultipleDelimiters () {
+        int numString = calc.add("//[*][%]\n1*2%3");
         assertEquals(numString,6);
     }
    }
