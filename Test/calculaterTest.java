@@ -79,4 +79,10 @@ class calculaterTest {
        assertNotNull(exeption);
        assertEquals("Negatives not allowed: [-1, -2]",exeption.getMessage());
    }
+    @Test
+    @DisplayName("Numbers bigger than 1000 ")
+    void testAddMethodWithNumbersbiggerthan1000 () {
+        int numString = calc.add("//;1001,2,3\n1;\n;2");
+        assertEquals(numString,8);
+    }
    }
