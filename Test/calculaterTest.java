@@ -54,6 +54,17 @@ class calculaterTest {
         int numString = calc.add("5,6,7\n1,\n");
         assertEquals(numString,19);
     }
-
-
+    @Test
+    @DisplayName("change a delimiter, the beginning of the string will contain a separate line ")
+    void testAddMethodWithLinesAfterComa2 () {
+        int numString = calc.add("//;1,2,3\n1;\n;2");
+        assertEquals(numString,9);
+    }
+   /* @Test
+    @DisplayName("change a delimiter, the beginning of the string will contain a separate line ")
+    void testAddMethodWithLinesAfterComa3 () {
+        int numString = calc.add("//;1,2//3\n1;\n;2");
+        assertEquals(numString,9);
+    }
+*/
 }
