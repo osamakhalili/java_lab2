@@ -85,4 +85,10 @@ class calculaterTest {
         int numString = calc.add("//;1001,2,3\n1;\n;2");
         assertEquals(numString,8);
     }
+    @Test
+    @DisplayName("Delimiters can be of any length ")
+    void testAddMethodWithDelimitersCanBeOfAnylength () {
+        int numString = calc.add(": //[***]\n1***2***3");
+        assertEquals(numString,6);
+    }
    }
