@@ -97,4 +97,10 @@ class calculaterTest {
         int numString = calc.add("//[*][%]\n1*2%3");
         assertEquals(numString,6);
     }
+    @Test
+    @DisplayName("Make sure you can also handle multiple delimiters with length longer than one char ")
+    void testAddMethodWithAllowMultipleDelimitersLongerThanOneChar () {
+        int numString = calc.add("//[%*][*%]\n1*%*2*%3");
+        assertEquals(numString,6);
+    }
    }
