@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class calculater {
 
 
@@ -9,13 +11,23 @@ public class calculater {
             return 0;
         }
         String[] numbersStrings = numbers.split("[,\n // ; ]");
+        ArrayList <Integer> negativeNumbers = new  ArrayList<Integer>();
         for (String num : numbersStrings) {
             try {
                 int num1 = Integer.parseInt(num.trim());
-                sum += num1;
+                if(num1<0){
+                    negativeNumbers.add(num1);
+                }else{
+                    sum += num1;
+                }
             } catch (Exception ex) {
+
             }
         }
+            if (negativeNumbers.size() > 0) {
+                throw new RuntimeException("Negatives not allowed: " + negativeNumbers);
+            }
+
         return sum;
     }
 }
