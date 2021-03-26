@@ -19,7 +19,10 @@ class EmployeeManagerTest {
     @DisplayName("test PayEmployee method For  EmptyList ")
     void PayEmployeeForEmptyList  () {
         EmployeeRepository repo =  mock(EmployeeRepository.class);
-        List <Employee> list = new ArrayList<Employee>();
+        List <Employee> list = new ArrayList<Employee>()
+
+
+                ;
 
         when(repo.findAll()).thenReturn(list);
 
