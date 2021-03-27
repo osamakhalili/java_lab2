@@ -19,10 +19,7 @@ class EmployeeManagerTest {
     @DisplayName("test PayEmployee method For  EmptyList ")
     void PayEmployeeForEmptyList  () {
         EmployeeRepository repo =  mock(EmployeeRepository.class);
-        List <Employee> list = new ArrayList<Employee>()
-
-
-                ;
+        List <Employee> list = new ArrayList<Employee>();
 
         when(repo.findAll()).thenReturn(list);
 
@@ -82,6 +79,23 @@ class EmployeeManagerTest {
 
         assertThat(payments).isEqualTo(0);
     }
+ @Test
+ @DisplayName("test PayEmployee method For  is Not Empty using Test double")
+void testPayMethodUsingDoublesWhenEmployeesIsNotEmpty () {
+     List<Employee> employeesList = new ArrayList<Employee>();
+     employeesList.add(new Employee("1",40000));
+     employeesList.add(new Employee("2",30000));
+     employeesList.add(new Employee("4",20000));
+
+        EmployeeRepositoryTest employeeRepositoryTest = new EmployeeRepositoryTest(employeesList);
+        BankServiceTest bankServiceTest = new BankServiceTest() ;
+        EmployeeManager employeeManager = new EmployeeManager(employeeRepositoryTest,bankServiceTest);
+
+        int actualPayment = employeeManager.payEmployees();
+        int expectedPayment = 3;
+        assertThat(actualPayment).isEqualTo(expectedPayment);
+        assertThat(employeesList.get(0).isPaid()).isEqualTo(true);
+}
 
 
 }
